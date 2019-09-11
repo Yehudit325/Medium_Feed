@@ -11,10 +11,14 @@ function App() {
   const [posts, setPosts] = useState([]);
     // add error handling
 
+    //add routing for links (enable back button)
+
   const search = query => {
+    if (!query.includes("-")) {
+      query = "%40" + query;
+    }
     const url =
-    `https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40${query}`;
-    // `https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2Fthe-atlantic`
+    `https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F${query}`;
 
     fetch(url)
       .then(response => response.json())
