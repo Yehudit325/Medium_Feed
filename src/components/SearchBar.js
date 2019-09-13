@@ -18,14 +18,7 @@ function SearchBar(props) {
         saveHistory();
         resetInputField();
     }
-    /*
-    1. add values to history array state
-    2. save in local storage
-    3. retreive from local storage
-    4. print histiry in console
-    5. limit to 5 objects in array
-    6. print history from search bar
-    */
+    
     const saveHistory = () => {
         if (history.length < 5) {
             setHistory([...history, searchValue]);
@@ -39,6 +32,8 @@ function SearchBar(props) {
         localStorage.setItem("history", JSON.stringify(history));
       },[history]);
 
+
+    // add feature - if name was searched already delete older search from history
     const updateHistory = () => {
         const newHistory = history;
         newHistory.shift();
@@ -53,10 +48,15 @@ function SearchBar(props) {
                     placeholder="Search" 
                     value={searchValue}
                     onChange={handleInputChanges}
+                    list="historyList"
                 />
+                <datalist id="historyList">
+                    {history.map((item, key) =>
+                        <option key={key} value={item} />
+                    )}
+                </datalist>
                 <button onClick={submitSearch}>Search</button>
             </form>
-            <p>{history}</p>
         </div>
         
 

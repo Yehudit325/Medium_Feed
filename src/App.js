@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 
-import SearchBar from "./SearchBar"
-import MediumItem from "./MediumItem"
-// import Feed from "./Feed"
+import SearchBar from "./components/SearchBar"
+import MediumItem from "./components/MediumItem"
 
-// import './App.css';
+import './App.css';
 
 
 function App() {
