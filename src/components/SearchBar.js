@@ -28,12 +28,12 @@ function SearchBar(props) {
     }
 
     useEffect(() => {
-        console.log(history);
         localStorage.setItem("history", JSON.stringify(history));
       },[history]);
 
 
     // add feature - if name was searched already delete older search from history
+    // if search value is empty do not allow search
     const updateHistory = () => {
         const newHistory = history;
         newHistory.shift();
@@ -42,20 +42,23 @@ function SearchBar(props) {
 
     return (
         <div>
-            <form className="search">
-                <input
-                    type="text" 
-                    placeholder="Search" 
-                    value={searchValue}
-                    onChange={handleInputChanges}
-                    list="historyList"
-                />
-                <datalist id="historyList">
-                    {history.map((item, key) =>
-                        <option key={key} value={item} />
-                    )}
-                </datalist>
-                <button onClick={submitSearch}>Search</button>
+            <form>
+                <div className="search">
+                    <input
+                        className="search-text"
+                        type="text" 
+                        placeholder="Search" 
+                        value={searchValue}
+                        onChange={handleInputChanges}
+                        list="historyList"
+                    />
+                    <datalist id="historyList">
+                        {history.map((item, key) =>
+                            <option key={key} value={item} />
+                        )}
+                    </datalist>
+                    <button className="submit-button" onClick={submitSearch}>Search</button>
+                </div>
             </form>
         </div>
         

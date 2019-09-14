@@ -29,9 +29,11 @@ function App() {
   return (
     <div>
       <SearchBar search={search}/>
-      {posts.map(item =>(
+      <div className="post-container">
+        {posts.map(item =>(
             <MediumItem key={item.title} item={item} />
         ))}
+      </div>
     </div>
   );
 }

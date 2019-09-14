@@ -1,1 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+ body {
+   align-content: center;
+   background-color: #e6ffcc;
+ }
+
+a {
+  text-decoration: none;
+}
+
+.post {
+  width: 70%;
+  border: 1.5px solid #29a329;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 8px;
+  padding: 12px;
+  background-color: white;
+}
+
+.title {
+  color: black;
+  font-size: 1.3em;
+}
+
+.content {
+  font-weight: 500;
+  color: #4d4d4d;
+}
+
+.author {
+  color: #0066cc;
+  font-weight: 600;
+  margin-top: 7px;
+}
+
+.pubDate {
+  color: #4d4d4d;
+  font-weight: 500;
+}
+
+.search {
+  text-align: center;
+  margin: 10px;
+}
+
+.search-text {
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+  margin-right: 7px;
+  padding: 7px;
+  border: 1px solid gray;
+  background-color: #f4f4ff;  
+}
+
+.submit-button  {
+  width: 70px;
+  height: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: #0099cc;
+  color: white;
+  font-weight: 500  ;
+  font-size: 0.9em;
+  outline:none;
+}
+
+.submit-button:hover {
+  background-color: #007399;
+}
+
+[list]::-webkit-calendar-picker-indicator {
+  display: none;
+}
