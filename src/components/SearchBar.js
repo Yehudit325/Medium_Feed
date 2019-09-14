@@ -12,33 +12,33 @@ function SearchBar(props) {
         setSearchValue("")
     }
 
+    // add feature -if search value is empty do not allow search
     const submitSearch = (e) => {
         e.preventDefault();
         props.search(searchValue);
-        saveHistory();
+        saveSearchHistory();
         resetInputField();
     }
     
-    const saveHistory = () => {
+    const saveSearchHistory = () => {
         if (history.length < 5) {
             setHistory([...history, searchValue]);
         } else {
-            updateHistory();
+            updateSearchHistory();
         }
     }
 
-    useEffect(() => {
-        localStorage.setItem("history", JSON.stringify(history));
-      },[history]);
-
-
     // add feature - if name was searched already delete older search from history
-    // if search value is empty do not allow search
-    const updateHistory = () => {
+    const updateSearchHistory = () => {
         const newHistory = history;
         newHistory.shift();
         setHistory([...newHistory, searchValue]);
     }
+
+    // responsible for saving current history in browsers local storage every time a user is searched
+    useEffect(() => {
+        localStorage.setItem("history", JSON.stringify(history));
+      },[history]);
 
     return (
         <div>
@@ -61,8 +61,6 @@ function SearchBar(props) {
                 </div>
             </form>
         </div>
-        
-
     );
 }
 

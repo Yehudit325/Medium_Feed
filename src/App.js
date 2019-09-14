@@ -10,8 +10,7 @@ function App() {
   const [posts, setPosts] = useState([]);
     // add error handling
 
-    //add routing for links (enable back button)
-
+  // Search function to send to search bar
   const search = query => {
     if (!query.includes("-")) {
       query = "%40" + query;
@@ -22,8 +21,7 @@ function App() {
     fetch(url)
       .then(response => response.json())
       .then(data => setPosts(data.items.filter(item => (!item.title.startsWith("Response")
-                                                     && !item.title.startsWith("Thanks")))))
-    
+                                                     && !item.title.startsWith("Thank")))))
   };
 
   return (

@@ -28,7 +28,7 @@ function MediumItem(props) {
 
     return (
         <div className="post">
-            <a href={item.link}>
+            <a href={item.link}> {/* add routing for links (enable back button) */}
                 <h2 className="title">{item.title}</h2>
                 <h3 className="content">{displayContent(item.content)}</h3>
                 <p className="author">{item.author}</p>
